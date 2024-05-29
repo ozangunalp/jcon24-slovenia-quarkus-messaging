@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ozangunalp</groupId>
+    <artifactId>jcon24-slovenia-quarkus-messaging</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+    <name>Jcon24 Slovenia Quarkus Messaging :: Parent</name>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/ozangunalp/jcon24-slovenia-quarkus-messaging/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:git@github.com:ozangunalp/jcon24-slovenia-quarkus-messaging.git</connection>
+        <developerConnection>scm:git:git@github.com:ozangunalp/jcon24-slovenia-quarkus-messaging.git</developerConnection>
+        <url>https://github.com/ozangunalp/jcon24-slovenia-quarkus-messaging</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <compiler-plugin.version>3.10.1</compiler-plugin.version>
+        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.source>21</maven.compiler.source>
+
+        <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+        <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+        <quarkus.platform.version>3.11.0.CR1</quarkus.platform.version>
+        <quarkiverse.micrometer.registry.version>3.2.4</quarkiverse.micrometer.registry.version>
+
+        <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+        <skipITs>true</skipITs>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>${quarkus.platform.group-id}</groupId>
+                <artifactId>${quarkus.platform.artifact-id}</artifactId>
+                <version>${quarkus.platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>temperature-sensors</module>
+        <module>temperature-enrichment</module>
+        <module>pub-service</module>
+        <module>stream-processing</module>
+        <module>price-analyzer</module>
+    </modules>
+</project>
+
