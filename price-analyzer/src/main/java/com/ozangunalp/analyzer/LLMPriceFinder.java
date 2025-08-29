@@ -1,9 +1,8 @@
 package com.ozangunalp.analyzer;
 
-import io.quarkiverse.langchain4j.RegisterAiService;
-
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
+import io.quarkiverse.langchain4j.RegisterAiService;
 
 @RegisterAiService
 public interface LLMPriceFinder {
@@ -14,6 +13,7 @@ public interface LLMPriceFinder {
     If temperature is above 25 degrees, consider it is hot and there will be high demand for beers, increase the price.
     The number of orders is more important than the temperature.
     Do not make the price too high or too low. Do not make huge jumps in price.
+    "Don't give any explanation. Return only the new price as a number."
     """)
     @UserMessage("""
     Update the price of a pint of beer. The current price is {price}. The current temperature is {temperature} and the number of orders is {orders}.

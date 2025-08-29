@@ -6,13 +6,13 @@
 
     <parent>
         <groupId>com.ozangunalp</groupId>
-        <artifactId>jcon24-slovenia-quarkus-messaging</artifactId>
+        <artifactId>amadeus-istanbul-quarkus-messaging</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>temperature-sensors</artifactId>
 
-    <name>Jcon24 Slovenia Quarkus Messaging :: Temperature Sensors</name>
+    <name>Amadeus Istanbul Quarkus Messaging :: Temperature Sensors</name>
 
     <dependencies>
         <dependency>

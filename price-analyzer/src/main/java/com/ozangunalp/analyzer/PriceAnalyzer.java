@@ -1,7 +1,8 @@
 package com.ozangunalp.analyzer;
 
+import io.quarkus.logging.Log;
 import io.smallrye.reactive.messaging.annotations.Blocking;
-import io.smallrye.reactive.messaging.pulsar.OutgoingMessage;
+import io.smallrye.reactive.messaging.kafka.Record;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.context.control.ActivateRequestContext;
 import jakarta.inject.Inject;
@@ -29,12 +30,12 @@ public class PriceAnalyzer {
     @Outgoing("prices")
     @Blocking
     @ActivateRequestContext
-    public OutgoingMessage<Double> analyze(Report report) {
-        System.out.println("analyzing... " + report);
+    public Record<String, Double> analyze(Report report) {
+        Log.infof("analyzing... %s", report);
         double newPrice = priceFinder.updatePrice(prices.getOrDefault(report.location(), BASE_PRICE), report.temperature(), report.numberOfOrder());
         prices.put(report.location(), newPrice);
-        System.out.println("new price: " + newPrice);
-        return OutgoingMessage.of(report.location, newPrice);
+        Log.infof("new price: %s", newPrice);
+        return Record.of(report.location, newPrice);
     }
 
 

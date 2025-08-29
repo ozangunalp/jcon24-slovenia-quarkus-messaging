@@ -4,7 +4,7 @@ import io.quarkus.qute.Template;
 import io.quarkus.qute.TemplateInstance;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.reactive.messaging.MutinyEmitter;
-import io.smallrye.reactive.messaging.pulsar.OutgoingMessage;
+import io.smallrye.reactive.messaging.kafka.Record;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
@@ -23,7 +23,7 @@ public class PubResource {
     String location;
 
     @Channel("orders")
-    MutinyEmitter<OutgoingMessage<Double>> emitter;
+    MutinyEmitter<Record<String, Double>> emitter;
 
     @Inject
     PriceRepository repository;
@@ -35,7 +35,7 @@ public class PubResource {
     @Path("/order")
     public void order() {
         System.out.println("Sending order for " + location);
-        emitter.sendAndAwait(OutgoingMessage.of(location, repository.getCurrentPrice()));
+        emitter.sendAndAwait(Record.of(location, repository.getCurrentPrice()));
     }
 
     @GET

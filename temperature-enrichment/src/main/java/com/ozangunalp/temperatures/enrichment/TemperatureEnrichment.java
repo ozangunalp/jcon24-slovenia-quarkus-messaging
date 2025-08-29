@@ -1,7 +1,7 @@
 package com.ozangunalp.temperatures.enrichment;
 
 
-import io.smallrye.reactive.messaging.pulsar.OutgoingMessage;
+import io.smallrye.reactive.messaging.kafka.Record;
 import io.vertx.core.json.JsonObject;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
@@ -15,12 +15,12 @@ public class TemperatureEnrichment {
     @Incoming("temperatures")
     @Outgoing("temps")
     @Transactional
-    public OutgoingMessage<TemperatureMeasurement> fromMqttToKafka(JsonObject temperature) {
+    public Record<String, TemperatureMeasurement> fromMqttToKafka(JsonObject temperature) {
         // LIVE CODE THIS
         var location = DeviceEntity.findLocationForDevice(temperature.getString("device"));
         TemperatureMeasurement outcome = new TemperatureMeasurement(location, temperature.getDouble("value"));
         System.out.println("Writing " + outcome);
-        return OutgoingMessage.of(location, outcome);
+        return Record.of(location, outcome);
     }
 
     record TemperatureMeasurement(String location, double temperature) {

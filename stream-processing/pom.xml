@@ -6,12 +6,12 @@
 
     <parent>
         <groupId>com.ozangunalp</groupId>
-        <artifactId>jcon24-slovenia-quarkus-messaging</artifactId>
+        <artifactId>amadeus-istanbul-quarkus-messaging</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>stream-processing</artifactId>
-    <name>Jcon24 Slovenia Quarkus Messaging :: Stream Processing</name>
+    <name>Amadeus Istanbul Quarkus Messaging :: Stream Processing</name>
 
     <dependencies>
         <dependency>
@@ -20,7 +20,7 @@
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-messaging-pulsar</artifactId>
+            <artifactId>quarkus-messaging-kafka</artifactId>
         </dependency>
         <dependency>
             <groupId>io.smallrye.reactive</groupId>

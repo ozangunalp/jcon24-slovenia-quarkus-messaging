@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ozangunalp</groupId>
-    <artifactId>jcon24-slovenia-quarkus-messaging</artifactId>
+    <artifactId>amadeus-istanbul-quarkus-messaging</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
-    <name>Jcon24 Slovenia Quarkus Messaging :: Parent</name>
+    <name>Amadeus Istanbul Quarkus Messaging :: Parent</name>
 
     <licenses>
         <license>
@@ -20,13 +20,13 @@
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/ozangunalp/jcon24-slovenia-quarkus-messaging/issues</url>
+        <url>https://github.com/ozangunalp/amadeus-istanbul-quarkus-messaging/issues</url>
     </issueManagement>
 
     <scm>
-        <connection>scm:git:git@github.com:ozangunalp/jcon24-slovenia-quarkus-messaging.git</connection>
-        <developerConnection>scm:git:git@github.com:ozangunalp/jcon24-slovenia-quarkus-messaging.git</developerConnection>
-        <url>https://github.com/ozangunalp/jcon24-slovenia-quarkus-messaging</url>
+        <connection>scm:git:git@github.com:ozangunalp/amadeus-istanbul-quarkus-messaging.git</connection>
+        <developerConnection>scm:git:git@github.com:ozangunalp/amadeus-istanbul-quarkus-messaging.git</developerConnection>
+        <url>https://github.com/ozangunalp/amadeus-istanbul-quarkus-messaging</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -40,8 +40,9 @@
 
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-        <quarkus.platform.version>3.11.0.CR1</quarkus.platform.version>
-        <quarkiverse.micrometer.registry.version>3.2.4</quarkiverse.micrometer.registry.version>
+        <quarkus.platform.version>3.26.2</quarkus.platform.version>
+        <quarkiverse.micrometer.registry.version>3.3.1</quarkiverse.micrometer.registry.version>
+        <quarkus-langchain4j-ollama.version>1.1.2</quarkus-langchain4j-ollama.version>
 
         <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
         <skipITs>true</skipITs>
